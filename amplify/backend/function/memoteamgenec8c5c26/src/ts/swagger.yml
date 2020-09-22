@@ -1,0 +1,123 @@
+swagger: "2.0"
+info:
+  description: "Memo Team Gen API"
+  version: "1.0.0"
+  title: "Memo Team Gen API"
+  contact:
+    email: "littlewat.dev@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+
+paths:    
+  /previous-groups/{hostId}:
+    get:
+      summary: get the last input group
+      description: get the last input group
+      produces:
+        - application/json
+      parameters:
+        - name: hostId
+          description: the cognito ID of the meeting host
+          in: path
+          required: true
+          type: string
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "object"
+            properties:
+              meetingId:
+                type: "string"
+                example: "cab5fa20862644afe116219d7842b46e8988e841"
+              groupInfos:
+                type: "array"
+                items:
+                  $ref: "#/definitions/GroupInfo"
+
+  /teamgen/{hostId}:
+    post:
+      summary: generate teams 
+      description: generate teams randomly or smartly depending on the parameter
+      produces:
+        - application/json
+      parameters:
+        - name: hostId
+          description: the cognito ID of the meeting host
+          in: path
+          required: true
+          type: string
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/TeamGenBody"
+      responses:
+        201:
+          description: "successful team generation"
+          schema:
+            type: "object"
+            properties:
+              meetingId:
+                type: "string"
+                example: "cab5fa20862644afe116219d7842b46e8988e841"
+              groupInfos:
+                type: "array"
+                items:
+                  $ref: "#/definitions/TeamInfo"
+        
+        
+definitions:
+  GroupInfo: 
+    type: "object"
+    properties:
+      groupName:
+        type: "string"
+        example: "group1"
+      members:
+        type: "array"
+        items:
+          example:
+            - memberId: "d-1"
+              name: "Addison Avery"
+            - memberId: "d-2"
+              name: "Alivia Mcclain"
+  TeamGenBody:
+    type: "object"
+    properties: 
+      mode:
+        description: generation mode (smart or random)
+        type: string
+        example: "smart"
+      numTeams:
+        description: number of desired teams
+        type: number
+        example: 2
+      inputGroups:
+        type: object
+        properties:
+          groupName:
+            type: "string"
+            example: "group1"
+          members:
+            type: "array"
+            items:
+              example:
+                - memberId: "d-1"
+                  name: "Addison Avery"
+                - memberId: "d-2"
+                  name: "Alivia Mcclain"
+  TeamInfo:
+    type: "object"
+    properties:
+      teamName:
+        type: "string"
+        example: "group1"
+      memberNames:
+        type: "array"
+        items:
+          example:
+            - "Alivia Mcclain"
+            - "Anand Wheatley"
+            - "Jana Sharp"

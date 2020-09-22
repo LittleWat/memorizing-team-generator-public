@@ -1,0 +1,94 @@
+{
+  "ModelName": "memoteamgen",
+  "ModelMetadata": {
+    "Author": "Kohei Watanabe",
+    "DateCreated": "Aug 16, 2020, 08:24 PM",
+    "DateLastModified": "Aug 16, 2020, 09:35 PM",
+    "Description": "db for memorize team generator",
+    "Version": "1.0"
+  },
+  "DataModel": [
+    {
+      "TableName": "memoteamgen-Host",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "hostId",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "timestamp",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "meetingId",
+          "AttributeType": "S"
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      }
+    },
+    {
+      "TableName": "memoteamgen-InputGroup",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "meetingId",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "groupName",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "memberIds",
+          "AttributeType": "SS"
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      }
+    },
+    {
+      "TableName": "memoteamgen-OutputTeam",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "meetingId",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "teamName",
+          "AttributeType": "S"
+        }
+      },
+      "NonKeyAttributes": [
+        {
+          "AttributeName": "memberIds",
+          "AttributeType": "SS"
+        }
+      ],
+      "DataAccess": {
+        "MySql": {}
+      }
+    },
+    {
+      "TableName": "memoteamgen-Member",
+      "KeyAttributes": {
+        "PartitionKey": {
+          "AttributeName": "id",
+          "AttributeType": "S"
+        },
+        "SortKey": {
+          "AttributeName": "name",
+          "AttributeType": "S"
+        }
+      },
+      "DataAccess": {
+        "MySql": {}
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "cSpell.words": ["memoteamgen", "memoteamgenec", "teamgen"],
+  "files.exclude": {
+    "**/*.js": true
+    "**/*.js.map": true
+  }
+}

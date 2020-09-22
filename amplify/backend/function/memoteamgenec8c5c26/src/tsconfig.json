@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "outDir": ".",
+    "sourceMap": true,
+    "module": "commonjs",
+    "target": "es6",
+    "lib": ["es2017", "dom"],
+    "moduleResolution": "node",
+    "removeComments": true,
+    "allowJs": true,
+    "checkJs": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./ts"
+  },
+  "include": [
+    "ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}

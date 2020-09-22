@@ -1,0 +1,37 @@
+{
+    "paths": [
+        {
+            "name": "/api-teamgen",
+            "lambdaFunction": "memoteamgenec8c5c26",
+            "privacy": {
+                "private": true,
+                "auth": [
+                    "/GET"
+                ]
+            }
+        }
+    ],
+    "resourceName": "teamgenapi",
+    "apiName": "teamgenapi",
+    "functionArns": [
+        {
+            "lambdaFunction": "memoteamgenec8c5c26"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 0,
+        "authRoleName": "amplify-memoteamgen-dev-221609-authRole",
+        "unAuthRoleName": "amplify-memoteamgen-dev-221609-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "memoteamgenec8c5c26",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

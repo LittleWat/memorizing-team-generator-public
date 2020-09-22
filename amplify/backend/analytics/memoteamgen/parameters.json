@@ -1,0 +1,21 @@
+{
+    "appName": "memoteamgen",
+    "roleName": "pinpointLambdaRoleeb120bc5",
+    "cloudformationPolicyName": "cloudformationPolicyeb120bc5",
+    "cloudWatchPolicyName": "cloudWatchPolicyeb120bc5",
+    "pinpointPolicyName": "pinpointPolicyeb120bc5",
+    "authPolicyName": "pinpoint_amplify_eb120bc5",
+    "unauthPolicyName": "pinpoint_amplify_eb120bc5",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}
