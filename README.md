@@ -12,4 +12,4 @@ Team Generation Screen
 Team Generation History
 ![history](./fig/history.mov-x2.gif)
 
-Issues or PRs are 
+Issues or PRs are welcome!
